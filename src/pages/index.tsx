@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import {getPostsMetaData} from "../../lib/getPostsData";
+import Link from "next/link";
 interface PostData {
     // Define the properties and their types for a post
     title: string;
@@ -23,7 +24,9 @@ export default function Index({postsData}: IndexProps) {
             {postsData?.map((metadata) => {
                 return (
                     <div key = {metadata.id}>
-                        <h2 className = 'post-title'>{metadata.title}</h2>
+                        <Link href={`/blog/${metadata.id}`} key = {metadata.title} >
+                            <h1 className = 'post-title'>{metadata.title}</h1>
+                        </Link>
                         <p className = 'post-description'>{metadata.description}</p>
                     </div>
                 )
