@@ -14,10 +14,6 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
 export default function Home() {
-    const [ShowElement, setShowElement] = useState(false);
-    const [ShowThisCantBeReached, setShowThisCantBeReached] = useState(true);
-    const [ShowMe, setShowMe] = useState(false);
-    // context Variable to clearInterval
     const context = useContext(AppContext);
     const aboutRef = useRef<HTMLDivElement>(null);
     const homeRef = useRef<HTMLDivElement>(null);
@@ -31,7 +27,7 @@ export default function Home() {
 
     console.log("Portfolio Rendered...");
     const meta = {
-        title: "Abdellatif Anaflous - Software Engineer",
+        title: "Mohamad Ghafarnia - Software Engineer",
         description: `I've been working on Software development for 5 years straight. Get in touch with me to know more.`,
         image: "/titofCercle.png",
         type: "website",
