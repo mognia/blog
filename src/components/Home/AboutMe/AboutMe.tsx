@@ -3,14 +3,14 @@ import Img from "../../../components/smallComp/image/Img";
 import ArrowIcon from "../../../components/Icons/ArrowIcon";
 export default function AboutMe(props) {
   const technologies = [
-    ["Solidity", "Next.js","Ether.js","JavaScript (ES6+)", "Tailwind CSS"],
-    ["Hardhat", "Node.js","react-moralis", "TypeScript", "Framer Motion"],
+    ["JavaScript (ES6+)","Angular", "Next.js","git", "Tailwind CSS"],
+    ["TypeScript", "React", "TypeScript","Rxjs" ,"Redux"],
   ];
   return (
     <div id="aboutSection" data-aos="fade-up" className="snap-start flex flex-col  items-center py-20 bg-AAprimary">
       {/* // ? 0.1 About Me */}
       <div
-        className="flex flex-col space-y-8 px-4 sm:px-0 w-full sm:w-[500px] 
+        className="flex flex-col space-y-8 px-4 sm:px-0 w-full sm:w-[500px]
         md:w-[700px] lg:w-[900px] "
       >
         <div className="flex flex-row items-center ">
@@ -29,22 +29,20 @@ export default function AboutMe(props) {
           <div className="w-full md:w-7/12 space-y-4 sm:text-base text-sm ">
             <div className="font-Header ">
               <span className="text-gray-400  tracking-wide">
-                Hello! My name is Mohammad and I enjoy solving problems and creating codes that live on the internet.
-                My interest in computer science started back in 2009 when I decided to try learning{" "}
-                <span className="text-AAsecondary">Ethical Hacking</span> using BackTrack OS — it turns out programming
-                skills are essential to achieve that, my journey with programming started from that time!
+                Hello! I&apos;m a self-taught JavaScript developer with over five years of experience in frontend development,
+                specializing in <span className="text-AAsecondary">Angular</span> and <span className="text-AAsecondary">React</span>.
               </span>
             </div>
             <div className="font-Header tracking-wide">
               <span className="text-gray-400  ">
-                Fast-forward to today, I&apos;ve had the privilege of working at
-                <span className="text-AAsecondary"> a huge manufacturing company</span>,
-                <span className="text-AAsecondary"> a start-up</span>,{" "}
-                <span className="text-AAsecondary">export-import companies</span>, also 
-                <span className="text-AAsecondary"> freelancing</span> and recently as Lead for the{" "}
-                <span className="text-AAsecondary">Google Developer Student club</span>. Experienced in Desktop & Web
-                Development, lately with Arduino Development. My main focus these days is creating and testing{" "}
-                <span className="text-AAsecondary">Smart Contracts</span> with Hardhat.
+                Known for my friendly and creative approach to programming,
+                  I strive to deliver high-quality work with a touch of innovation.
+                  I&apos;m constantly fueled by my eagerness to learn and keep up with the latest trends and technologies in the ever-evolving tech landscape.
+              </span>
+            </div>
+            <div className="font-Header tracking-wide">
+              <span className="text-gray-400  ">
+                I&apos;m excited to embark on new coding adventures, and I&apos;m always open to new challenges that push me to expand my skill set. Let&apos;s connect and create something amazing together!
               </span>
             </div>
 
