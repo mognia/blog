@@ -21,7 +21,7 @@ export default function WhereIHaveWorked() {
         return <Citex />;
     }
   };
-  const [DescriptionJob, setDescriptionJob] = React.useState("TrouveTavoie");
+  const [DescriptionJob, setDescriptionJob] = React.useState("Kilid");
   return (
     <div data-aos="fade-up" className="flex flex-col items-center justify-center py-24 space-y-12 bg-AAprimary">
       {/* // ? Title "Where I've Worked" */}
@@ -55,8 +55,6 @@ const CompaniesBar = props => {
   const [barAbovePosition, setBarAbovePosition] = React.useState<number>(0);
   const [companyNameBackgroundColorGreen, setCompanyNameBackgroundColorGreen] = React.useState<boolean[]>([
     true,
-    false,
-    false,
     false,
     false,
     false,
@@ -125,39 +123,39 @@ const CompaniesBar = props => {
           {/*  setDescriptionJob={props.setDescriptionJob}*/}
           {/*/>*/}
           <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={2}
+            ButtonOrderOfcompanyNameBackgroundColorGreen={0}
             CompanyName="Kilid"
             BarPosition={35}
             BarAvobePosition={1}
             DescriptionJob="Kilid"
-            CompanyNameBackgroundColorGreen={[false, false, true, false, false]}
+            CompanyNameBackgroundColorGreen={[true, false, false, false]}
             setDescriptionJob={props.setDescriptionJob}
           />
           <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={3}
+            ButtonOrderOfcompanyNameBackgroundColorGreen={1}
             CompanyName="Esafar"
             BarPosition={78}
             BarAvobePosition={385}
             DescriptionJob="Esafar"
-            CompanyNameBackgroundColorGreen={[false, false, false, true, false]}
+            CompanyNameBackgroundColorGreen={[false, true, false, false]}
             setDescriptionJob={props.setDescriptionJob}
           />
           <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={4}
+            ButtonOrderOfcompanyNameBackgroundColorGreen={2}
             CompanyName="Citex"
             BarPosition={122}
             BarAvobePosition={513}
             DescriptionJob="Citex"
-            CompanyNameBackgroundColorGreen={[false, false, false, false, true]}
+            CompanyNameBackgroundColorGreen={[false, false, true, false]}
             setDescriptionJob={props.setDescriptionJob}
           />
           <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={5}
+            ButtonOrderOfcompanyNameBackgroundColorGreen={3}
             CompanyName="Freelance"
             BarPosition={167}
             BarAvobePosition={641}
             DescriptionJob="Freelance"
-            CompanyNameBackgroundColorGreen={[false, false, false, false, false, true]}
+            CompanyNameBackgroundColorGreen={[false, false, false, true]}
             setDescriptionJob={props.setDescriptionJob}
           />
         </div>

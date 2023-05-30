@@ -28,7 +28,7 @@ export default function Home() {
     console.log("Portfolio Rendered...");
     const meta = {
         title: "Mohamad Ghafarnia - Software Engineer",
-        description: `I've been working on Software development for 5 years straight. Get in touch with me to know more.`,
+        description: `I've been working on Software development for 5 years . Get in touch with me to know more.`,
         image: "/titofCercle.png",
         type: "website",
     };
@@ -39,15 +39,15 @@ export default function Home() {
                 <title>{meta.title}</title>
                 <meta name="robots" content="follow, index" />
                 <meta content={meta.description} name="description" />
-                <meta property="og:url" content={`https://anaflous.com`} />
-                <link rel="canonical" href={`https://anaflous.com`} />
+                <meta property="og:url" content={`https://mognia.dev`} />
+                <link rel="canonical" href={`https://mognia.dev`} />
                 <meta property="og:type" content={meta.type} />
                 <meta property="og:site_name" content="Manu Arora" />
                 <meta property="og:description" content={meta.description} />
                 <meta property="og:title" content={meta.title} />
                 <meta property="og:image" content={meta.image} />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@mannupaaji" />
+                <meta name="twitter:site" content="@mogniaa" />
                 <meta name="twitter:title" content={meta.title} />
                 <meta name="twitter:description" content={meta.description} />
                 <meta name="twitter:image" content={meta.image} />
@@ -58,10 +58,10 @@ export default function Home() {
                 <SocialMediaArround finishedLoading={context.sharedState.finishedLoading} />
                 {context.sharedState.finishedLoading ? <AboutMe ref={aboutRef} /> : <></>}
                 {context.sharedState.finishedLoading ? <WhereIHaveWorked /> : <></>}
-                {context.sharedState.finishedLoading ? <SomethingIveBuilt /> : <></>}
+                {/*{context.sharedState.finishedLoading ? <SomethingIveBuilt /> : <></>}*/}
                 {context.sharedState.finishedLoading ? <GetInTouch /> : <></>}
                 {context.sharedState.finishedLoading ? (
-                    <Footer githubUrl={"https://github.com/hktitof/my-website"} hideSocialsInDesktop={true} />
+                    <Footer githubUrl={"https://github.com/mognia/blog"} hideSocialsInDesktop={true} />
                 ) : (
                     <></>
                 )}

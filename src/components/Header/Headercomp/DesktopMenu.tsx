@@ -48,28 +48,28 @@ export default function DesktopMenu() {
           <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Experience</span>
         </ReactScrollLink>
       </motion.div>
-      <motion.div
-        initial={{
-          y: -40,
-          opacity: 0,
-        }}
-        animate={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          type: "spring",
-          duration: 1.2,
-          delay:  1,
-        }}
-        className="text-AAsecondary"
-      >
-        <ReactScrollLink to="SomethingIveBuiltSection" spy={true} smooth={true} offset={-100} duration={200}>
-        &gt; 03. <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Work</span>
+      {/*<motion.div*/}
+      {/*  initial={{*/}
+      {/*    y: -40,*/}
+      {/*    opacity: 0,*/}
+      {/*  }}*/}
+      {/*  animate={{*/}
+      {/*    y: 0,*/}
+      {/*    opacity: 1,*/}
+      {/*  }}*/}
+      {/*  transition={{*/}
+      {/*    type: "spring",*/}
+      {/*    duration: 1.2,*/}
+      {/*    delay:  1,*/}
+      {/*  }}*/}
+      {/*  className="text-AAsecondary"*/}
+      {/*>*/}
+      {/*  <ReactScrollLink to="SomethingIveBuiltSection" spy={true} smooth={true} offset={-100} duration={200}>*/}
+      {/*  &gt; 03. <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Work</span>*/}
 
-        </ReactScrollLink>
-        
-      </motion.div>
+      {/*  </ReactScrollLink>*/}
+      {/*  */}
+      {/*</motion.div>*/}
       <motion.span
         initial={{
           y: -40,
@@ -87,7 +87,7 @@ export default function DesktopMenu() {
         className="text-AAsecondary"
       >
          <ReactScrollLink to="GetInTouchSection" spy={true} smooth={true} offset={-100} duration={200}>
-         &gt; 04. <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Contact</span>
+         &gt; 03. <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Contact</span>
         </ReactScrollLink>
       </motion.span>
       <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
