@@ -61,7 +61,6 @@ export function getPostData(id: string) {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     // get metadata, content
     const {data, content} = matter(fileContents);
-
     let metadata = data;
     metadata['id'] = id;
 

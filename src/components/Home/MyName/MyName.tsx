@@ -30,8 +30,7 @@ export default function MyName() {
                     opacity: {delay: 1.5, duration: 0.2},
                     y: {delay: 1.5, duration: 0.2},
                 }}
-                className="text-gray-300 font-bold text-3xl lg:text-7xl sm:text-5xl md:text-6xl mt-4"
-            >
+                className="text-gray-300 font-bold text-3xl lg:text-7xl sm:text-5xl md:text-6xl mt-4">
                 <span className={"text-AAsecondary font-mono"}>MO</span>hammad <span
                 className={"text-AAsecondary font-mono"}>G</span>hafar<span
                 className={"text-AAsecondary font-mono"}>NIA</span>.

@@ -37,7 +37,6 @@ const Header = (props: {
             scrollSizeY.current = window.scrollY;
           }
         }
-        console.log("Scrolling checking for NavBar ", scrollSizeY.current);
       }
     }
   }, [context.sharedState.portfolio.NavBar, context.sharedState.portfolio.NavBar.IntervalEvent]);
@@ -54,10 +53,6 @@ const Header = (props: {
     }
   }, [context.sharedState.portfolio.NavBar, context.sharedState.portfolio.NavBar.scrolling]);
 
-  
-
-
-  console.log("rotate from header : ", rotate);
   //veify document for serverSide rendering
   if (typeof document !== "undefined") {
     rotate ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
