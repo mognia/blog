@@ -1,9 +1,10 @@
 module.exports = {
     reactStrictMode: true,
+    // TODO: uncomment for prod
     output: 'export',
     images: {
-        loader: 'akamai',
-        path: '',
+        unoptimized: true,
+        path: '/',
     },
 
     webpack: (config) => {

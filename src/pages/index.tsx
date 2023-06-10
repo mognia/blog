@@ -55,7 +55,7 @@ export default function Home() {
                 <Header sectionsRef={homeRef} />
                 <MyName  />
                 <SocialMediaArround finishedLoading={context.sharedState.finishedLoading} />
-                {context.sharedState.finishedLoading ? <AboutMe ref={aboutRef} /> : <></>}
+                {context.sharedState.finishedLoading ? <AboutMe /> : <></>}
                 {context.sharedState.finishedLoading ? <WhereIHaveWorked /> : <></>}
                 {/*{context.sharedState.finishedLoading ? <SomethingIveBuilt /> : <></>}*/}
                 {context.sharedState.finishedLoading ? <GetInTouch /> : <></>}

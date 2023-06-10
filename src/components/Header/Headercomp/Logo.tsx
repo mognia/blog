@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Img from "@/components/smallComp/image/Img";
+import Image from 'next/image'
 import Link from "next/link";
 export default function Logo() {
   return (
     <>
         <Link href='/'>
-        <Img src={"/img/logo.svg"} className={"object-cover rounded-lg"} alt="My Image Not Found" />
+        <Image  width={150} height={150} src={"/img/logo.svg"} className={"object-cover rounded-lg"} alt="My Image Not Found" />
         </Link>
     </>
   );
