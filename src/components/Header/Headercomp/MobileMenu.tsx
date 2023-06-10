@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
+import  Link  from "next/link";
 const MobileMenu = props => {
   const closeMenu = () => {
     props.setRotate(!props.rotate);
@@ -22,11 +22,8 @@ const MobileMenu = props => {
         justify-center items-center space-y-8 font-sans"
         >
           <Link
-            to="aboutSection"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={200}
+            href="/#aboutSection"
+            scroll={true}
             onClick={() => closeMenu()}
             className="flex flex-col text-center space-y-2"
           >
@@ -39,11 +36,8 @@ const MobileMenu = props => {
             </span>
           </Link>
           <Link
-            to="WhereIhaveWorkedSection"
-            spy={true}
-            smooth={true}
-            offset={-250}
-            duration={200}
+            href="/#WhereIhaveWorkedSection"
+            scroll={true}
             onClick={() => closeMenu()}
             className="flex flex-col text-center space-y-2"
           >
@@ -55,29 +49,9 @@ const MobileMenu = props => {
               Experience
             </span>
           </Link>
-          {/*<Link*/}
-          {/*  to="SomethingIveBuiltSection"*/}
-          {/*  spy={true}*/}
-          {/*  smooth={true}*/}
-          {/*  offset={100}*/}
-          {/*  duration={200}*/}
-          {/*  onClick={() => closeMenu()}*/}
-          {/*  className="flex flex-col text-center space-y-2"*/}
-          {/*>*/}
-          {/*  <span className="text-AAsecondary text-xs font-mono">03.</span>*/}
-          {/*  <span*/}
-          {/*    className="text-white font-Text2 text-sm sm:text-base*/}
-          {/*   hover:text-AAsecondary hover:cursor-pointer duration-300"*/}
-          {/*  >*/}
-          {/*    Work*/}
-          {/*  </span>*/}
-          {/*</Link>*/}
           <Link
-            to="GetInTouchSection"
-            spy={true}
-            smooth={true}
-            offset={100}
-            duration={200}
+            href="/#GetInTouchSection"
+            scroll={true}
             onClick={() => closeMenu()}
             className="flex flex-col text-center space-y-2"
           >
@@ -87,6 +61,20 @@ const MobileMenu = props => {
              hover:text-AAsecondary hover:cursor-pointer duration-300"
             >
               Contact
+            </span>
+          </Link>
+          <Link
+            href="/blog"
+            scroll={true}
+            onClick={() => closeMenu()}
+            className="flex flex-col text-center space-y-2"
+          >
+            <span className="text-AAsecondary text-xs font-mono">04.</span>
+            <span
+              className="text-white font-Text2 text-sm sm:text-base
+             hover:text-AAsecondary hover:cursor-pointer duration-300"
+            >
+              Blog
             </span>
           </Link>
           <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
