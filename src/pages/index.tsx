@@ -1,5 +1,4 @@
 import Header from "../components/Header/Header";
-import Startup from "../components/Header/StartupLogo/Startup";
 import MyName from "../components/Home/MyName/MyName";
 import { useContext, useEffect, useState, useRef } from "react";
 import SocialMediaArround from "../components/Home/SocialMediaArround/SocialMediaArround";
@@ -20,7 +19,7 @@ export default function Home() {
 
 
     useEffect(() => {
-        Aos.init({ duration: 2000, once: true });
+        Aos.init({ duration: 1000, once: true });
     }, []);
 
 
