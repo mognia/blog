@@ -23,7 +23,7 @@ export default function WhereIHaveWorked() {
   };
   const [DescriptionJob, setDescriptionJob] = React.useState("Kilid");
   return (
-    <div data-aos="fade-up" className="flex flex-col items-center justify-center py-24 space-y-12 bg-AAprimary">
+    <div id={'WhereIhaveWorkedSection'} data-aos="fade-up" className="flex flex-col items-center justify-center py-24 space-y-12 bg-AAprimary">
       {/* // ? Title "Where I've Worked" */}
       <section className="flex flex-row items-center">
         <div className="flex flex-row items-center">

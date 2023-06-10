@@ -68,7 +68,11 @@ export default function DesktopMenu() {
                     y: 0,
                     opacity: 1,
                 }}
-
+                transition={{
+                    type: "spring",
+                    duration: 1.2,
+                    delay: 1,
+                }}
                 className="text-AAsecondary"
             >
                 <Link scroll={false} href="/blog">
