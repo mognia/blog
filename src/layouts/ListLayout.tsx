@@ -1,46 +1,21 @@
-import Image from 'next/image'
-import {getPostData, getPostsMetaData} from "../../../lib/getPostsData";
-import formatDate from '../../../lib/utils/formatDate'
+import {motion} from "framer-motion";
+import formatDate from "../../lib/utils/formatDate";
+import ArrowIcon from "@/components/Icons/ArrowIcon";
 import Link from "next/link";
 import Tag from "@/components/Tag";
 import React, {useRef, useState} from "react";
-import ArrowIcon from "@/components/Icons/ArrowIcon";
-import Header from "@/components/Header/Header";
-import SocialMediaArround from "@/components/Home/SocialMediaArround/SocialMediaArround";
-import {motion} from "framer-motion";
 import Pagination from "@/components/Pagination/Pagination";
 
-interface PostData {
-    // Define the properties and their types for a post
-    tags: any;
-    title: string;
-    summary: string;
-    date: string;
-    id: string;
-}
-
-interface IndexProps {
-    // Define the type of the postsData prop
-    postsData: PostData[];
-    pagination:any;
-    initialDisplayPosts:any
-}
-
-export default function BlogIndex({postsData,pagination,initialDisplayPosts}: IndexProps) {
-
-    const homeRef = useRef<HTMLDivElement>(null);
+export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
     const [searchValue, setSearchValue] = useState('')
-    const filteredBlogPosts = postsData.filter((frontMatter) => {
+    const filteredBlogPosts = posts.filter((frontMatter) => {
         const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
         return searchContent.toLowerCase().includes(searchValue.toLowerCase())
     });
     const displayPosts =
-        initialDisplayPosts?.length && !searchValue ? initialDisplayPosts : filteredBlogPosts
-    return (
+        initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+    return(
         <>
-            <Header sectionsRef={homeRef}/>
-            <SocialMediaArround finishedLoading={true}/>
-
             <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
                 <div className='info-container h-full flex flex-col justify-center
       px-8 2xl:px-72 xl:px-56 lg:px-32  md:px-28 sm:px-8 py-32 sm:py-52 '>
@@ -61,34 +36,35 @@ export default function BlogIndex({postsData,pagination,initialDisplayPosts}: In
                             }}
                             className="text-AAsecondary"
                         >
-                        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                            {/*{title}*/}
-                        </h1>
-                        <div className="relative max-w-lg">
-                            <input
-                                aria-label="Search articles"
-                                type="text"
-                                onChange={(e) => setSearchValue(e.target.value)}
-                                placeholder="Search articles"
-                                className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
-                            />
-                            <svg
-                                className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+                                {/*{title}*/}
+                            </h1>
+                            <div className="relative max-w-lg">
+                                <input
+                                    aria-label="Search articles"
+                                    type="text"
+                                    onChange={(e) => setSearchValue(e.target.value)}
+                                    placeholder="Search articles"
+                                    className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
                                 />
-                            </svg>
-                        </div>
+                                <svg
+                                    className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </div>
                         </motion.div>
                     </div>
+                    {!filteredBlogPosts.length && 'No posts found.'}
                     {displayPosts?.map((metadata) => {
                         return (
                             <>
@@ -143,13 +119,12 @@ export default function BlogIndex({postsData,pagination,initialDisplayPosts}: In
                                         </article>
                                     </li>
                                 </motion.div>
-                            </>
-                        )
-                    })}
-
                                 {pagination && pagination.totalPages > 1 && !searchValue && (
                                     <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
                                 )}
+                            </>
+                        )
+                    })}
                 </div>
                 <style jsx>{`
                   .info-container {
@@ -170,27 +145,4 @@ export default function BlogIndex({postsData,pagination,initialDisplayPosts}: In
             </div>
         </>
     )
-}
-
-export async function getServerSideProps(context) {
-    const page = context.query.page?context.query.page:1; // Access query params from context object
-    const POSTS_PER_PAGE = 5
-    const postsMetaData = getPostsMetaData();
-    const pageNumber = parseInt(page)
-    const initialDisplayPosts = postsMetaData.slice(
-        POSTS_PER_PAGE * (pageNumber - 1),
-        POSTS_PER_PAGE * pageNumber
-    )
-    const pagination = {
-        currentPage: pageNumber,
-        totalPages: Math.ceil(postsMetaData.length / POSTS_PER_PAGE),
-    }
-    return {
-        props: {
-            postsData: postsMetaData,
-            title: 'posts',
-            pagination:pagination,
-            initialDisplayPosts:initialDisplayPosts
-        }
-    }
 }

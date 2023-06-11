@@ -1,7 +1,6 @@
 module.exports = {
     reactStrictMode: true,
-    // TODO: uncomment for prod
-    output: 'export',
+    // output: 'export',
     images: {
         unoptimized: true,
         path: '/',
