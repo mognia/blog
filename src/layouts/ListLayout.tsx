@@ -6,9 +6,9 @@ import Tag from "@/components/Tag";
 import React, {useRef, useState} from "react";
 import Pagination from "@/components/Pagination/Pagination";
 
-export default function ListLayout({ posts, title='Blog Posts', initialDisplayPosts = [], pagination }) {
+export default function ListLayout({ posts=[], title='Blog Posts', initialDisplayPosts = [], pagination=null }) {
     const [searchValue, setSearchValue] = useState('')
-    const filteredBlogPosts = posts.filter((frontMatter) => {
+    const filteredBlogPosts = posts?.filter((frontMatter) => {
         const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
         return searchContent.toLowerCase().includes(searchValue.toLowerCase())
     });
@@ -18,7 +18,7 @@ export default function ListLayout({ posts, title='Blog Posts', initialDisplayPo
         <>
             <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
                 <div className='info-container h-full flex flex-col justify-center
-      px-8 2xl:px-72 xl:px-56 lg:px-32  md:px-28 sm:px-8 py-32 sm:py-52 '>
+      px-8 2xl:px-72 xl:px-56 lg:px-32  md:px-28 sm:px-8 py-28  '>
                     <div className="space-y-2 pt-6 pb-8 md:space-y-5">
                         <motion.div
                             initial={{
@@ -36,10 +36,10 @@ export default function ListLayout({ posts, title='Blog Posts', initialDisplayPo
                             }}
                             className="text-AAsecondary"
                         >
-                            <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                                {/*{title}*/}
+                            <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-300 light:text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+                                {title}
                             </h1>
-                            <div className="relative max-w-lg">
+                            <div className="relative mt-5 max-w-lg">
                                 <input
                                     aria-label="Search articles"
                                     type="text"
@@ -64,7 +64,8 @@ export default function ListLayout({ posts, title='Blog Posts', initialDisplayPo
                             </div>
                         </motion.div>
                     </div>
-                    {!filteredBlogPosts.length && 'No posts found.'}
+                    <ul>
+                    {(!filteredBlogPosts.length && searchValue )&& 'No posts found.'}
                     {displayPosts?.map((metadata) => {
                         return (
                             <>
@@ -125,6 +126,7 @@ export default function ListLayout({ posts, title='Blog Posts', initialDisplayPo
                             </>
                         )
                     })}
+                    </ul>
                 </div>
                 <style jsx>{`
                   .info-container {

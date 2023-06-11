@@ -1,14 +1,7 @@
-import Image from 'next/image'
-import {getPostData, getPostsMetaData} from "../../../lib/getPostsData";
-import formatDate from '../../../lib/utils/formatDate'
-import Link from "next/link";
-import Tag from "@/components/Tag";
+import {getPostsMetaData} from "../../../lib/getPostsData";
 import React, {useRef, useState} from "react";
-import ArrowIcon from "@/components/Icons/ArrowIcon";
 import Header from "@/components/Header/Header";
 import SocialMediaArround from "@/components/Home/SocialMediaArround/SocialMediaArround";
-import {motion} from "framer-motion";
-import Pagination from "@/components/Pagination/Pagination";
 import ListLayout from "@/layouts/ListLayout";
 
 interface PostData {
