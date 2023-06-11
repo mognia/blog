@@ -6,14 +6,14 @@ import Tag from "@/components/Tag";
 import React, {useRef, useState} from "react";
 import Pagination from "@/components/Pagination/Pagination";
 
-export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
+export default function ListLayout({ posts, title='Blog Posts', initialDisplayPosts = [], pagination }) {
     const [searchValue, setSearchValue] = useState('')
     const filteredBlogPosts = posts.filter((frontMatter) => {
         const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
         return searchContent.toLowerCase().includes(searchValue.toLowerCase())
     });
     const displayPosts =
-        initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+        initialDisplayPosts?.length && !searchValue ? initialDisplayPosts : filteredBlogPosts
     return(
         <>
             <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
