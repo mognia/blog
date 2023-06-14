@@ -23,7 +23,6 @@ export async function getServerSideProps(context) {
     const postsMetaData = getPostsMetaData();
     const filteredBlogPosts = postsMetaData.filter((frontMatter) => {
         const searchContent = frontMatter.tags.map(tag=>tag.split(' ').join('-'))
-        console.log(searchContent)
         return searchContent.includes(context.query.tag.toLowerCase())
     });
     // console.log(searchContent)

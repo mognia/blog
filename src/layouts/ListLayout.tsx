@@ -13,7 +13,7 @@ export default function ListLayout({ posts=[], title='Blog Posts', initialDispla
         return searchContent.toLowerCase().includes(searchValue.toLowerCase())
     });
     const displayPosts =
-        initialDisplayPosts?.length && !searchValue ? initialDisplayPosts : filteredBlogPosts
+        initialDisplayPosts?.length && !searchValue ? initialDisplayPosts : filteredBlogPosts;
     return(
         <>
             <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
@@ -100,7 +100,7 @@ export default function ListLayout({ posts=[], title='Blog Posts', initialDispla
                                                     <h3 className="text-2xl font-bold leading-8 tracking-tight flex items-center">
                                                         <ArrowIcon
                                                             className={"flex-none h-4 md:h-6 w-4 md:w-5 translate-y-[0.5px] text-AAsecondary"}/>
-                                                        <Link href={`/blog/${metadata.title}`}
+                                                        <Link href={`/blog/${metadata.id}`}
                                                               className="text-gray-300">
                                                             {metadata.title}
                                                         </Link>

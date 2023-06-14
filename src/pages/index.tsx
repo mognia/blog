@@ -24,7 +24,6 @@ export default function Home() {
 
 
 
-    console.log("Portfolio Rendered...");
     const meta = {
         title: "Mohamad Ghafarnia - Software Engineer",
         description: `I've been working on Software development for 5 years . Get in touch with me to know more.`,
