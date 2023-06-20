@@ -75,8 +75,8 @@ export function getPostsMetaData() {
 const root = process.cwd()
 export async function getPostData(id: string) {
 const fullPath = path.join(postsDirectory, id + mdx_file_extention);
-    const source = path.join(postsDirectory, id + mdx_file_extention);
-
+    const source = fs.existsSync(fullPath)
+       && fs.readFileSync(fullPath, 'utf8')
     // get MDX metadata and content
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     // get metadata, content
@@ -130,8 +130,10 @@ const fullPath = path.join(postsDirectory, id + mdx_file_extention);
         frontMatter: {
             readingTime: readingTime(code),
             slug: id || null,
+            fileName: fs.existsSync(fullPath)&&`${metadata.title}.mdx`,
             ...frontmatter,
             date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
         },
+
     }
 }

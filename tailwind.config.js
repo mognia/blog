@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/**/**.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/layouts/**/*.{js,ts,jsx,tsx}",
   ],
@@ -169,7 +169,7 @@ module.exports = {
       }),
     },
   },
-  plugins: [require("tailwind-scrollbar"),require('tailwind-scrollbar-hide')],
+  plugins: [require("tailwind-scrollbar"),require('tailwind-scrollbar-hide'),require('@tailwindcss/typography'),],
   variants: {
     scrollbar: ["rounded"],
   },
