@@ -134,7 +134,7 @@ export default function PostLayout(props:PostLayoutInterface) {
                             <div className="pt-4 xl:pt-8">
                                 <Link
                                     href="/blog"
-                                    className="text-primary-500 hover:text-primary-400"
+                                    className="text-AAsecondary"
                                 >
                                     &larr; Back to the blog
                                 </Link>
