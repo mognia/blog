@@ -1,5 +1,8 @@
 import "../../styles/globals.css";
 // import { Analytics } from '@vercel/analytics/react';
+import '@/../styles/tailwind.css'
+import '@/../styles/prism.css'
+import 'katex/dist/katex.css'
 import AppContext from "../components/AppContextFolder/AppContext";
 import { useRef, useState } from "react";
 
