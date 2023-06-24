@@ -113,8 +113,8 @@ export default function PostLayout(props:PostLayoutInterface) {
                                                 <h2 className="text-xs uppercase tracking-wide text-gray-400">
                                                     Previous Article
                                                 </h2>
-                                                <div className="text-primary-500 hover:text-primary-400">
-                                                    <Link href={`/blog/${props.prev.slug}`}>{props.prev.title}</Link>
+                                                <div className="text-AAsecondary hover:text-primary-400">
+                                                    <Link href={`/blog/${props.prev.name}`}>{props.prev.name}</Link>
                                                 </div>
                                             </div>
                                         )}
@@ -123,8 +123,8 @@ export default function PostLayout(props:PostLayoutInterface) {
                                                 <h2 className="text-xs uppercase tracking-wide text-gray-400">
                                                     Next Article
                                                 </h2>
-                                                <div className="text-primary-500 hover:text-primary-400">
-                                                    <Link href={`/blog/${props.next.slug}`}>{props.next.title}</Link>
+                                                <div className="text-AAsecondary hover:text-primary-400">
+                                                    <Link href={`/blog/${props.next.name}`}>{props.next.name}</Link>
                                                 </div>
                                             </div>
                                         )}

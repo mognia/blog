@@ -4,6 +4,8 @@ import SocialMediaArround from "@/components/Home/SocialMediaArround/SocialMedia
 import ListLayout from "@/layouts/ListLayout";
 import kebabCase from '../../../../lib/utils/kebabCase'
 import {getPostsMetaData} from "../../../../lib/getPostsData";
+import {siteMetadata} from "@/data/siteMetadata";
+import {TagSEO} from "@/components/SEO/SEO";
 
 export default function BlogTag({posts, title}) {
 
@@ -11,6 +13,10 @@ export default function BlogTag({posts, title}) {
 
     return (
         <>
+            <TagSEO
+                title={`${title} - ${siteMetadata.author}`}
+                description={`${title} tags - ${siteMetadata.author}`}
+            />
             <Header sectionsRef={homeRef}/>
             <SocialMediaArround finishedLoading={true}/>
             <ListLayout initialDisplayPosts={posts} title={title}/>

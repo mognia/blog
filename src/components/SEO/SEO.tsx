@@ -28,10 +28,11 @@ interface CommonSeo{
                 <meta property="og:image" content={props.ogImage} key={props.ogImage} />
             )}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:site" content={siteMetadata.twitter} />
+            {/*<meta name="twitter:site" content={siteMetadata.twitter} />*/}
             <meta name="twitter:title" content={props.title} />
             <meta name="twitter:description" content={props.description} />
             <meta name="twitter:image" content={props.twImage} />
+            <link rel="icon" type="image/svg" href="/img/fav.svg"/>
             <link
                 rel="canonical"
                 href={props.canonicalUrl ? props.canonicalUrl : `${siteMetadata.siteUrl}${router.asPath}`}

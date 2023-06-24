@@ -12,6 +12,8 @@ import AppContext from "../components/AppContextFolder/AppContext";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
+import {siteMetadata} from "@/data/siteMetadata";
+import {PageSEO} from "@/components/SEO/SEO";
 export default function Home() {
     const context = useContext(AppContext);
     const aboutRef = useRef<HTMLDivElement>(null);
@@ -27,29 +29,13 @@ export default function Home() {
     const meta = {
         title: "Mohamad Ghafarnia - Software Engineer",
         description: `I've been working on Software development for 5 years . Get in touch with me to know more.`,
-        image: "/titofCercle.png",
+        image: "/img/fav.svg",
         type: "website",
     };
 
     return (
         <>
-            <Head>
-                <title>{meta.title}</title>
-                <meta name="robots" content="follow, index" />
-                <meta content={meta.description} name="description" />
-                <meta property="og:url" content={`https://mognia.dev`} />
-                <link rel="canonical" href={`https://mognia.dev`} />
-                <meta property="og:type" content={meta.type} />
-                <meta property="og:site_name" content="Manu Arora" />
-                <meta property="og:description" content={meta.description} />
-                <meta property="og:title" content={meta.title} />
-                <meta property="og:image" content={meta.image} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@mogniaa" />
-                <meta name="twitter:title" content={meta.title} />
-                <meta name="twitter:description" content={meta.description} />
-                <meta name="twitter:image" content={meta.image} />
-            </Head>
+            <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
             <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
                 <Header sectionsRef={homeRef} />
                 <MyName  />

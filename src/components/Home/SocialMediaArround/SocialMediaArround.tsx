@@ -36,9 +36,9 @@ export default function SocialMediaEmail(props: { finishedLoading: boolean }) {
             {/* Linkedin icon */}
             <IconClickableWithAnimation Icon={LinkedinIcon} href={"https://www.linkedin.com/in/mohamad-ghafarnia/"} />
             {/* Instagram Icon */}
-            <IconClickableWithAnimation Icon={InstagramIcon} href={"#"} />
+            {/*<IconClickableWithAnimation Icon={InstagramIcon} href={"#"} />*/}
             {/* Youtube Icon */}
-            <IconClickableWithAnimation Icon={YoutubeIcon} href={"#"} />
+            {/*<IconClickableWithAnimation Icon={YoutubeIcon} href={"#"} />*/}
           </div>
           <div className="h-28 w-0.5 bg-gray-400"></div>
         </div>

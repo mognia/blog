@@ -5,8 +5,9 @@ import CustomLink from './CustomLink'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
 import PostLayout from "@/layouts/PostLayout";
-
+import Image from "@/components/MDXcomponents/Image";
 export const MDXComponents = {
+    Image,
     TOCInline,
     a: CustomLink,
     pre: Pre,

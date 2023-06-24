@@ -3,6 +3,8 @@ import React, {useRef, useState} from "react";
 import Header from "@/components/Header/Header";
 import SocialMediaArround from "@/components/Home/SocialMediaArround/SocialMediaArround";
 import ListLayout from "@/layouts/ListLayout";
+import {siteMetadata} from "@/data/siteMetadata";
+import {PageSEO} from "@/components/SEO/SEO";
 
 interface PostData {
     // Define the properties and their types for a post
@@ -26,6 +28,7 @@ export default function BlogIndex({postsData,pagination,initialDisplayPosts}: In
 
     return (
         <>
+            <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
             <Header sectionsRef={homeRef}/>
             <SocialMediaArround finishedLoading={true}/>
             <ListLayout posts={postsData}  pagination={pagination} initialDisplayPosts={initialDisplayPosts} />
