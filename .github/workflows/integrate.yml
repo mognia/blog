@@ -33,6 +33,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           ACCESS_TOKEN: ${{ secrets.BLOG_SECRET }}
-          BRANCH: gh-pages
+          BRANCH: mognia.github.io
           FOLDER: out
           CLEAN: true
