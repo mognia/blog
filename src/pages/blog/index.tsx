@@ -23,7 +23,6 @@ interface IndexProps {
 }
 
 export default function BlogIndex({postsData,pagination,initialDisplayPosts}: IndexProps) {
-
     const homeRef = useRef<HTMLDivElement>(null);
 
     return (
