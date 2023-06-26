@@ -57,7 +57,6 @@ export function getAllPostsPath() {
 
 export function getPostsMetaData() {
     const allMdxFiles = getMdxFiles();
-
     const postsMetaData = allMdxFiles.map((parsedFile) => {
         const fullPath = path.join(postsDirectory, parsedFile.base);
 
