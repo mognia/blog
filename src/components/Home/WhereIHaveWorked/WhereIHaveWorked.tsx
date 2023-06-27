@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import { motion } from "framer-motion";
 import ArrowIcon from "../../Icons/ArrowIcon";
 import Kilid from "./Descriptions/Kilid";
@@ -53,16 +53,23 @@ export default function WhereIHaveWorked() {
 const CompaniesBar = props => {
   const [barPosition, setBarPosition] = React.useState<number>(35); // Green bar position by the default it's -20px
   const [barAbovePosition, setBarAbovePosition] = React.useState<number>(0);
+  const [scrollPosition, setScrollPosition] = React.useState<number>(0);
   const [companyNameBackgroundColorGreen, setCompanyNameBackgroundColorGreen] = React.useState<boolean[]>([
     true,
     false,
     false,
     false,
   ]);
+  const scrollRef = useRef(null);
+
+  const scroll = (scrollPosition) => {
+    scrollRef.current.scrollTo(scrollPosition, scrollRef.current.scrollHeight);
+  }
   const CompanyButton = props => {
     return (
       <button
         onClick={() => {
+          scroll(props.scrollPosition)
           setBarPosition(props.BarPosition);
           setBarAbovePosition(props.BarAvobePosition);
           props.setDescriptionJob(props.DescriptionJob);
@@ -84,6 +91,7 @@ const CompaniesBar = props => {
 
   return (
     <div
+        ref={scrollRef}
       id="WhereIhaveWorkedSection"
       className=" flex flex-col md:flex-row  w-screen md:w-auto 
       overflow-auto scrollbar-hide md:overflow-hidden pb-4 md:pb-0 justify-start
@@ -127,6 +135,7 @@ const CompaniesBar = props => {
             CompanyName="Kilid"
             BarPosition={35}
             BarAvobePosition={1}
+            scrollPosition = {0}
             DescriptionJob="Kilid"
             CompanyNameBackgroundColorGreen={[true, false, false, false]}
             setDescriptionJob={props.setDescriptionJob}
@@ -135,7 +144,8 @@ const CompaniesBar = props => {
             ButtonOrderOfcompanyNameBackgroundColorGreen={1}
             CompanyName="Esafar"
             BarPosition={78}
-            BarAvobePosition={385}
+            BarAvobePosition={126}
+            scrollPosition = {95}
             DescriptionJob="Esafar"
             CompanyNameBackgroundColorGreen={[false, true, false, false]}
             setDescriptionJob={props.setDescriptionJob}
@@ -144,7 +154,8 @@ const CompaniesBar = props => {
             ButtonOrderOfcompanyNameBackgroundColorGreen={2}
             CompanyName="Citex"
             BarPosition={122}
-            BarAvobePosition={513}
+            BarAvobePosition={255}
+            scrollPosition = {170}
             DescriptionJob="Citex"
             CompanyNameBackgroundColorGreen={[false, false, true, false]}
             setDescriptionJob={props.setDescriptionJob}
@@ -153,14 +164,15 @@ const CompaniesBar = props => {
             ButtonOrderOfcompanyNameBackgroundColorGreen={3}
             CompanyName="Freelance"
             BarPosition={167}
-            BarAvobePosition={641}
+            BarAvobePosition={388}
+            scrollPosition = {200}
             DescriptionJob="Freelance"
             CompanyNameBackgroundColorGreen={[false, false, false, true]}
             setDescriptionJob={props.setDescriptionJob}
           />
         </div>
         <div className="block md:hidden w-[760px] h-0.5 rounded bg-gray-500">
-          <motion.div animate={{ x: barAbovePosition }} className="w-[128px] h-0.5 rounded bg-AAsecondary"></motion.div>
+          <motion.div  animate={{ x: barAbovePosition }} className="w-[128px] h-0.5 rounded bg-AAsecondary"></motion.div>
         </div>
       </div>
     </div>
