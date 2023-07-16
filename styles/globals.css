@@ -42,3 +42,7 @@ a {
 * {
   box-sizing: border-box;
 }
+.text-blogInfo, .text-blogWarning, .text-blogDanger{
+  border: 1px solid;
+  padding: 10px;
+}

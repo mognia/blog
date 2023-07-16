@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+      "./posts/**",
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/layouts/**/*.{js,ts,jsx,tsx}",
@@ -25,6 +26,9 @@ module.exports = {
         Arimo: ["Arimo", "sans-serif"],
       },
       colors: {
+        blogInfo:'#00D6EF',
+        blogWarning:'#EFE400',
+        blogDanger:'#EF003A',
         AAprimary: "#1B262C",
         AAsecondary: "#08D9D6",
         AAError:"#ff6489",

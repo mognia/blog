@@ -1,0 +1,97 @@
+---
+title: Discover PWAs The Future of Web Apps Unleashed.
+date: '2023-7-16'
+tags: ['javascript', 'PWA', 'web-development']
+draft: false
+summary: 'Embark on a Journey of Exploration as We Unveil PWAs - The Revolutionary Future of Web Applications Redefined'
+---
+
+# What is PWA?
+A Progressive Web App (PWA) is a web app that enhances the user experience, integrates new capabilities, and can be installed anywhere, on any device.
+It looks like any other app and works offline or with poor network connectivity, ensuring uninterrupted usage.
+
+The PWA application is nothing more than a traditional app plus a service worker and a manifest file.
+The service worker is a script that runs in the background and handles tasks such as caching, push notifications, and background synchronization.
+It allows the PWA to function offline and load quickly, even on slow networks. The manifest file, on the other hand, provides metadata about the app, such as its name, icons, and display preferences, making it appear and behave like a native app on the user's device.
+
+
+
+# Web app manifest:
+
+The web app manifest is a JSON file that informs the browser about a Progressive Web App's (PWA) display and behavior.
+It includes information about the app's name, icons, colors, orientation, starting URL, scope, and display mode. This allows PWAs to offer a native-like experience, launching from the home screen or app drawer, and retaining their unique look and feel within the operating system.
+
+
+
+# Service workers:
+When an app asks for something that the service worker covers, even if the user is offline, the service worker steps in and acts like a network proxy. It checks if it can give the app what it needs from the Cache Storage API,  from the network like usual, or if it can make it up using a local algorithm. That way, you can give the app an experience similar to a regular app that's already on your device. And, if needed, the service worker can even work without an internet connection.
+
+Service workers are able to handle push notifications and background sync, allowing them to perform tasks even when the app is not actively running. This enables features such as sending updates or syncing data in the background, enhancing the overall user experience. Additionally, service workers can also help improve performance by caching frequently accessed resources, reducing the need for repeated network requests.
+
+<p className='text-blogInfo'>There is only one service worker per PWA, but that doesn't mean you need to place the code in only one file. A service worker can include other files using importScripts in every browser or using ECMAScript module imports in some modern browsers.</p>
+
+# Service workers's scope:
+
+The location of your service worker's folder defines what it can control. For instance, if the service worker is at `example.com/my-pwa/sw.js`, it can manage any navigation in the my-pwa path or below, like` example.com/my-pwa/demos/`. The service worker can only control pages, workers, and other "clients" that are within its scope.
+
+The scope is relevant for both browser tabs and PWA windows. Each scope can have only one service worker. When it's active and running, typically only one copy is available, regardless of how many clients are in use (such as PWA windows or browser tabs).
+
+# Life Cycle of Service Workers:
+
+- registering:
+
+The service worker lifecycle begins with the service worker registration process. This involves the browser downloading and analyzing the service worker file. The registration process occurs when a page asks for a service worker.
+
+- installing :
+
+If the browser is able to analyze the service worker file without any errors, it will trigger the install event. This event only happens once during the service worker's lifetime. The installation process occurs automatically, without needing the user's permission, even if the user doesn't install the PWA on their device. Service worker installation takes place only when a registered service worker exists and the file can be interpreted as JavaScript without errors during its initial run. Installing the service worker on the browser allows it to run in the background and perform tasks such as caching resources. On the other hand, installing on the client involves downloading and setting up the PWA on the user's device, enabling them to access it directly from their home screen.
+
+- activating:
+
+After installation, the service worker can't control its clients, including your PWA, until it's activated. Once it's ready, the activation event will occur. However, the page that registered the service worker won't be managed by default. The service worker won't take control until the next time you navigate to that page by reloading it or reopening the PWA. You can monitor events in the service worker's global scope using the self object.
+
+```js
+// This code executes in its own worker or thread
+self.addEventListener("install", event => {
+console.log("Service worker installed");
+});
+self.addEventListener("activate", event => {
+console.log("Service worker activated");
+});
+```
+
+# Updating a Service Worker:
+
+When the browser detects that there's a new version of a service worker file (from your server) that's different from the current one, it will update the service worker. However, the new version won't activate until the old one is no longer controlling any clients, which is called the "waiting" state. This ensures only one version of the service worker runs at a time. Refreshing or reopening the page won't activate the new version. To activate the new service worker, the user must close or navigate away from all tabs and windows that use the old version, then go back to the page.
+
+
+
+# caching:
+
+You can take advantage of the Cache Storage API to download, save, remove, or modify assets on the device. Once saved, these assets can be returned and served on the device without requiring a network request. By effectively implementing caches, you can make your web application accessible offline and serve assets quickly, independent of network conditions.
+
+# What to cache:
+
+When it comes to caching, a common question is what resources to cache. While there's no certain answer, a good starting point is to cache all the essential resources required to render the user interface.
+
+<p className={"text-blogWarning"}>When caching assets, it's important to keep in mind that you're downloading and storing them on users' devices. Therefore, it's important to use that space and bandwidth responsibly. You must find a balance between having enough on-device assets to render a quick or offline experience while also avoiding downloading too much data.</p>
+
+# Caching approaches
+
+- Cache First:
+This approach searches for a cached response before making a request to the network. If a cached response is found, it is returned; otherwise, a network request is made.
+
+- Network First:
+In this strategy, a request is made to the network first to fetch a response. If a response is received, it is returned; otherwise, the cache is checked for the requested asset.
+
+- Stale While Re-validate:
+
+This method serves a response from the cache while making a background request for the latest version. The latest version is then saved to the cache for future requests.
+
+- Network-Only :
+
+This approach always returns a response from the network and never consults the cache. If no response is received, an error is returned.
+
+- Cache-Only:
+
+This strategy always responds with a cached version of the requested asset and never makes network requests. To use this method, assets must be added to the cache before they are requested. If the requested asset is not found in the cache, an error is returned.
