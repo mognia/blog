@@ -68,7 +68,7 @@ export function getPostsMetaData() {
         metadata['id'] = parsedFile.name;
         return metadata;
     });
-    return postsMetaData;
+    return postsMetaData.sort((a, b) =>   new Date(b.date).getTime() - new Date(a.date).getTime());;
 }
 
 const root = process.cwd()
