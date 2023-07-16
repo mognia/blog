@@ -1,0 +1,146 @@
+---
+title: Modernizing Angular Template Syntax
+date: '2023-7-17'
+tags: ['javascript', 'array']
+draft: false
+summary: 'Experience Angular cutting-edge change with its innovative New Template Syntax, helping developers like never before!'
+---
+
+Angular is getting some exciting updates that might interest different developers in different ways.
+Some folks have found Angular stable for a while, but others have felt it was not changing much.
+Now, Angular is moving forward quickly, but where is it actually heading?
+
+One big change is how Angular will handle certain instructions (like NgIf, NgForOf, NgSwitch).
+Instead of using them the way they are currently used, Angular is planning to introduce a new, easier-to-use system.
+If you want to stay updated on these changes, you can check out the Requests for [Comments (RFCs)](https://github.com/angular/angular/discussions/50719).
+
+But don't worry; I'll explain the upcoming changes to you in simple terms.
+
+## Changing Control Flow
+The Angular team is working on a significant update that will revamp how control flow is handled in templates.
+Currently, we use structural directives like NgIf, NgForOf, and NgSwitch for this purpose.
+However, the team plans to introduce a more modern and user-friendly syntax, similar to a macro-like approach.
+**Don't worry, though the old structural directives won't disappear completely;**
+they'll still be available, but the new syntax will be preferred going forward.
+
+This change ensures backward compatibility, allowing you to use both the old and new styles in different files for a while. The main goal of this update is to enhance the readability of templates and make it easier for a broader range of developers in the Frontend world to adapt. The new syntax takes inspiration from a more functional approach and is influenced by the Svelte Template Syntax, which is known for its simplicity and effectiveness.
+
+```js:Before
+    trackByFunction(index, item) {
+      return item.id;
+    }
+
+    <div *ngFor="let item of items; index as idx; trackBy: trackByFunction">
+      Item #{{ idx }}: {{ item.name }}
+    </div>
+```
+
+Previously, in Angular, the trackByFunction served as a custom function used to improve performance while looping through large collections with *ngFor.
+
+The old syntax allowed only a function to be used for this purpose. However, with the new approach, it will work just with properties.
+
+The update means that Angular will now track changes in the collection based on the individual items' unique ids rather than their identities.
+This change is particularly beneficial when the items in the collection have distinct ids, as it significantly enhances efficiency during collection updates.
+```js:After
+    {#for item of items; track item.id; let idx = $index, e = $even}
+      Item #{{ idx }}: {{ item.name }}
+    {/for}
+```
+The updated syntax introduces some implicit variables, such as `$index, $first, $last, $even`, and `$odd`, which are automatically available for use in row views. You can use these variables directly or even give them custom names using the 'let' segment.
+
+Moreover, the new syntax encourages the use of 'track' for loops to enhance performance. By doing this, it optimizes the process of comparing lists, making it more efficient by ensuring proper tracking of changes. This leads to better performance when dealing with large collections and iterating through them using *ngFor.
+
+# ‘empty’ block :
+
+```js
+    {#for item of items; track item.id}
+      {{ item }}
+    {:empty}
+      There were no items in the list.
+    {/for}
+```
+A critical feature that has been introduced is the 'empty' block, which enables developers to display a specific template when the list is empty. This means you can now handle the case when there are no items in the list more conveniently and in a more controlled manner.
+
+Additionally, Angular is making a significant change in how it handles list diffing. Instead of relying on the IterableDiffers, which could be customized, it will now offer a new, highly optimized algorithm for improved performance. This new approach ensures more efficient list comparison, leading to better overall performance when dealing with lists and collections in your Angular applications.
+
+# If-Else Blocks:
+If you ever found the original way of using ng-container and ng-template alongside the *ngIf structural directives are confusing or not very straightforward, the introduction of the New Control Flow in Angular might have the solution you need. This new approach aims to simplify and enhance the way you work with templates and conditions, making it easier to manage and understand the control flow in your Angular applications.
+
+```js:Before (in Theory)
+    <ng-container *ngIf="cond.expr; else elseBlock">
+      Main case was true!
+    </ng-container>
+
+    <ng-template #elseBlock>
+      <ng-container *ngIf="other.expr; else finalElseBlock">
+        Extra case was true!
+      </ng-container>
+
+    </ng-template>
+    <ng-template #finalElseBlock>
+      False case!
+    </ng-template>
+```
+
+```js:After
+    {#if cond.expr}
+      Main case was true!
+    {:else if other.expr}
+      Extra case was true!
+    {:else}
+      False case!
+    {/if}
+```
+
+# Switch Block:
+
+The 'switch' block replaces the traditional `*ngSwitch` directive. This new way of writing brings significant benefits, including improved template type-checking and the elimination of the requirement for container elements to hold conditional expressions. Here's a quick look at how it would appear:
+
+```html:Before
+<!-- Old way using *ngSwitch -->
+
+<ng-container [ngSwitch]="someValue">
+
+    <div *ngSwitchCase="'value1'">Content for value1</div>
+
+    <div *ngSwitchCase="'value2'">Content for value2</div>
+
+    <div *ngSwitchDefault>Default content</div>
+</ng-container>
+```
+
+```html:After
+    {#switch condition}
+      {:case caseA}
+        Case A.
+      {:case caseB}
+        Case B.
+      {:default}
+        Default case.
+    {/switch}
+```
+
+# Upcoming Plans
+
+
+The Angular team has a vision to further expand this new syntax, making it capable of handling various JavaScript loop styles, such as async iteration and for-in loops. This means that in the future, developers can expect more flexibility and ease when working with different types of loops in their Angular applications. Additionally, potential enhancements include support for virtual scrolling and destructuring, which will enable more efficient and dynamic rendering of content.
+
+Moreover, there's another Request for Comments (RFC) that demonstrates a new feature in action, leveraging the power of the Built-In Control Flow. For those curious about the specifics, it's worth checking out the RFC for [Deferred Loading](https://github.com/angular/angular/discussions/50716) to explore exciting capabilities that may soon be available in Angular.
+
+# FAQ Summary
+
+Let's address some common concerns that developers might have about the new control flow syntax in Angular:
+
+**Existing structural directives:** Don't worry! The current structural directives, like NgIf, will continue to work as they do now. However, Angular will strongly encourage developers to adopt the new syntax for improved readability and performance.
+
+**Structural Directive Concept:** The structural directive concept is here to stay! It remains an essential feature in Angular and won't be removed.
+
+**Syntax highlighting:** Yes, you can expect syntax highlighting support. The Angular Language Service will highlight keywords and expressions within the new control flow blocks, making your coding experience more seamless.
+
+**Effect on query results:** The new control flow syntax won't have any impact on query results. Your queries will work just as they did before.
+
+**Need to import a new control flow:** No need to worry about importing anything extra. The new control flow syntax will be built into the template language and automatically available to all components without any additional steps.
+
+**Performance:** While the new control flow might offer marginal improvements in performance, especially for 'for' loops and list diffing, the impact may not be significant in most cases.
+
+**Custom block groups and directives:** As of now, the new syntax doesn't support defining custom block groups through libraries, nor can you add directives to the new control flow blocks. It's something to keep in mind when working with the updated syntax.
