@@ -5,16 +5,16 @@ import { getTasksTextWithHighlightedKeyword } from "./taskAndType";
 export default function Kilid() {
   const tasks = [
     {
-      text: "worked as Senior Angular Developer .",
-      keywords: ["Angular"],
+      text: "Constructed an international real estate platform supporting multi language and multi currency, causing 10% more monthly users",
+      keywords: ["Constructed"],
     },
     {
-      text: "Contributed to the refactoring and restructuring of an old codebase as a Senior Frontend Developer, while collaborating on the development of an international real estate platform.",
-      keywords: ["international"],
+      text: "Developed an Auto-Generative search filter, reducing user search requests to the server by 32%",
+      keywords: ["Developed"],
     },
     {
-      text: "Played a key role as a Senior Frontend Developer in the development and optimization of an real estate platform, involving codebase refactoring, feature implementation, and adherence to industry standards.",
-      keywords: ["Senior Frontend Developer"],
+      text: "Refactored the project and implemented a design system, leading to a more efficient development workflow",
+      keywords: ["Refactored"],
     },
   ];
   return (
@@ -26,7 +26,7 @@ export default function Kilid() {
             Frontend Developer <span className="text-AAsecondary">@ Kilid / Housify</span>
           </span>
           {/* Date */}
-          <span className="font-mono text-xs text-gray-500">Jun 2021 - Dec 2022</span>
+          <span className="font-mono text-xs text-gray-500">June 2021 - December 2022</span>
         </div>
         <div className="flex flex-col space-y-4 sm:text-sm text-xs">
             {/* Tasks Description 1 */}

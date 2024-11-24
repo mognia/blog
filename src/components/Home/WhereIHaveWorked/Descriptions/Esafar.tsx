@@ -5,16 +5,20 @@ import { getTasksTextWithHighlightedKeyword } from "./taskAndType";
 export default function Esafar() {
   const tasks = [
     {
-      text: "Redesigned the entire web application, implementing a new design and structure along with a new codebase.",
+      text: "Collaborated to build a B2B panel to sell flight tickets at a reduced price, which caused sales to increase by 14%",
+      keywords: ["Collaborated"],
+    },
+    {
+      text: "Contributed to Transforming from AngularJS to the latest Angular version at the time.",
+      keywords: ["Contributed"],
+    },
+    {
+      text: "Created a customer support panel, enabling a 30% rise in sales and improved customer satisfaction overall.",
+      keywords: ["Created"],
+    },
+    {
+      text: "Redesigned the entire web application including code refactor, leading to 25% drop in bounce rate..",
       keywords: ["Redesigned"],
-    },
-    {
-      text: "Developed a B2B panel specifically designed for selling flights and hotels to other agencies.\n",
-      keywords: ["B2B panel"],
-    },
-    {
-      text: "Ensured the maintenance and upkeep of a CRM panel dedicated to the call center department",
-      keywords: ["CRM panel"],
     },
   ];
   return (
@@ -26,7 +30,7 @@ export default function Esafar() {
             Frontend Developer <span className="text-AAsecondary">@ Esafar</span>
           </span>
           {/* Date */}
-          <span className="font-mono text-xs text-gray-500">Aug 2019 - Sep 2020</span>
+          <span className="font-mono text-xs text-gray-500">August 2019 - September 2020</span>
         </div>
         <div className="flex flex-col space-y-4 sm:text-sm text-xs">
           {/* Tasks Description 1 */}
