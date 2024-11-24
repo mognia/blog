@@ -14,7 +14,7 @@ export default function Citex() {
     },
     {
       text: "Implemented various functionalities, such as wallet integration, transaction tracking, and portfolio management, to provide a comprehensive investment experience for users.",
-      keywords: [],
+      keywords: ['Implemented'],
     },
   ];
 
@@ -27,7 +27,7 @@ export default function Citex() {
             Frontend Engineer <span className="text-AAsecondary">@ Citex</span>
           </span>
           {/* Date */}
-          <span className="font-mono text-xs text-gray-500">Jan 2018 - May 2019</span>
+          <span className="font-mono text-xs text-gray-500">January 2018 - May 2019</span>
         </div>
         <div className="flex flex-col space-y-4 sm:text-sm text-xs">
           {/* Tasks Description 1 */}
